@@ -44,7 +44,7 @@ public class NioTest {
 					System.out.print((char)buf.get());
 				} 
 				//buf.compact(); 
-				//buf.clear();
+				buf.clear();
 				bytesRead = fileChannel.read(buf); 
 				System.out.println(">>>>>>>>>>");
 				System.out.println(bytesRead);
