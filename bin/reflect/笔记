@@ -1,0 +1,50 @@
+反射的基本运用
+     上面我们提到了反射可以用于判断任意对象所属的类，获得Class对象，构造任意一个对象以及调用一个
+     对象这里我们介绍一下基本反射功能的实现（反射相关的类一般都在java.lang.reflect包里）
+  1.获得Class对象，三种方法
+  	（1）使用Class类的forName静态方法
+  		在JDBC开发中常用此方法加载数据库驱动
+  			Class.forName(diver);
+  	(2)直接获取某一个对象的class
+  		Class<?> klass = int.class
+  		Class<?> classInt = Integer.TYPE
+  	(3)调用某个对象的getClass()方法
+  		StringBuilder str = new StringBuilder("123");
+  		Class<?> kalss = str.getClass();
+  2.判断是否为某个类的实例
+  	一般地，我们用instanceof关键字来判断是否为某个类的实例。同时我们有可以借助反射中的Class对象的isIntance()方法来判断是否为某个类的
+  	实例
+  	public native boolean isInstance(Object obj);
+  	
+  3.创建实例
+  	通过反射来生成对象主要有两种方式。
+  	(1)使用Class对象的newInstance()方法来创建Class对象对应类的实例
+		Class<?> c = String.class;
+		Object str = c.newInstance();
+	(2) 通过构造方法
+		
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

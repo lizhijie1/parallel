@@ -22,14 +22,18 @@ public class AIOClient {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		final AsynchronousSocketChannel client = AsynchronousSocketChannel.open();
 		client.connect(new InetSocketAddress("localhost",8000),null,new CompletionHandler<Void,Object>() {
-
+			//连接成功回调
 			@Override
 			public void completed(Void result, Object attachment) {
+				//向服务端写入数据
 				client.write(ByteBuffer.wrap("Hello!".getBytes()),null,new CompletionHandler<Integer, Object>() {
+					//写入完成，回调
 					@Override
 					public void completed(Integer result, Object attachment) {
+						//准备从服务端读取数据
 						final ByteBuffer buffer = ByteBuffer.allocate(1024);
 						client.read(buffer, buffer,new CompletionHandler<Integer,ByteBuffer>() {
+							//成功读取所有数据后的回调
 							@Override
 							public void completed(Integer result, ByteBuffer attachment) {
 								buffer.flip();
